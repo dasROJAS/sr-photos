@@ -1,10 +1,5 @@
-<ul>
-    <li class="text" *ngFor="let photo of photos | async">
-        {{photo.name}}<br >
-        <img src="{{'http://salrojas.com/' + photo.path}}" />
-    </li>
+<ui-postcard *ngFor="let photo of photos | async" imageUrl="{{'http://salrojas.com/' + photo.path}}" name="{{photo.name}}"></ui-postcard>
 
-    <input id='photoName' #name>
-    <input id='photoPath' #path>
-    <button (click)='addPhoto(name, path)'>Add Photo</button>
-</ul>
+<input id='photoName'>
+<input id='photoPath'>
+<button (click)='addPhoto()'>Add Photo</button>

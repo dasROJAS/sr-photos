@@ -16,16 +16,14 @@ export class AppComponent {
     }
 
     addPhoto() {
-        const name = document.getElementById('photoName').value
-        const path = document.getElementById('photoPath').value
+        const name = <HTMLInputElement>document.getElementById('photoName')
+        const path = <HTMLInputElement>document.getElementById('photoPath')
         const now = Date.now()
 
         this.db.collection('photos').add({
-            'name': name,
-            'path': path,
+            'name': name.value,
+            'path': path.value,
             'createdAt': now
         })
-        .then(ref => console.log('ref': ref))
-        .catch(err => console.log('err': err))
     }
 }
